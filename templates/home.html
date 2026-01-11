@@ -1,0 +1,29 @@
+{% extends "./headers.html" %}
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5">Welcome to J2R - Job Description to Resume</h1>
+        <p class="lead">Easily generate tailored resumes from job descriptions using AI.</p>
+        <hr>
+        <h2 class="mt-4">Get Started</h2>
+        <!-- add bootstrap form validators -->
+        <form action="/generate_resume" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="job_description" class="form-label">Job Description (Text)</label>
+                <textarea class="form-control"
+                          id="job_description"
+                          name="job_description"
+                          rows="6"
+                          required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="resume_file" class="form-label">Upload Your Existing Resume (PDF or DOCX)</label>
+                <input class="form-control"
+                       type="file"
+                       id="resume_file"
+                       name="resume_file"
+                       accept=".pdf,.doc,.docx"
+                       required>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Resume</button>
+        </div>
+    {% endblock body %}
